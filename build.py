@@ -161,6 +161,7 @@ class Configuration:
     def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode) -> Configuration:
       """Construct an employee."""
         return Configuration(**loader.construct_mapping(node))
+        
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
     ) -> None:
