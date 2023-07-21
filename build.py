@@ -158,7 +158,7 @@ class Configuration:
             self._additional_files = addfiles
             self._suffix = suff
 
-    def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode) -> Configuration:
+    def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode)
         """Construct a Configuration."""
         return Configuration(**loader.construct_mapping(node))
 
