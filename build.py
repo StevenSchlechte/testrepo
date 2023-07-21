@@ -151,12 +151,12 @@ class Configuration:
     _additional_files: list[File]
     _suffix: str
 
-    def __init__(self, package_version, package_path, files, addfiles, suff):
-            self._package_version = package_version
-            self._package_path = package_path
-            self._files = files
-            self._additional_files = addfiles
-            self._suffix = suff
+    def __init__(self, _package_version, _package_path, _files, _additional_files, _suffix):
+            self._package_version = _package_version
+            self._package_path = _package_path
+            self._files = _files
+            self._additional_files = _additional_files
+            self._suffix = _suffix
 
     def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode):
         """Construct a Configuration."""
