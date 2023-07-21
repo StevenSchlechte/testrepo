@@ -15,6 +15,8 @@ from yaml.loader import SafeLoader
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
     configurations = yaml.load(f, Loader=SafeLoader)
 
+print(configurations)
+
 
 
 class File(ABC):
