@@ -10,10 +10,6 @@ from zipfile import ZipFile
 from yaml.loader import SafeLoader
 
 
-with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-    configurations = yaml.load(f, Loader=SafeLoader)
-
-print(configurations)
 
 
 
@@ -242,6 +238,11 @@ mac_files: list[File] = [
     DifferentNameFile(Path("start_gui.sh"), Path("start_gui.command")),
 ]
 clean_directory(distribution_path)
+
+with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
+    configurations = yaml.load(f, Loader=SafeLoader)
+
+print(configurations)
 for configuration in configurations:
     configuration.create_zip(
         output_file_name,
