@@ -228,39 +228,25 @@ mac_files: list[File] = [
 ]
 configurations: list[Configuration] = [
     Configuration(
-        _otvision_path=otvision_path,
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
         _files=base_files,
         _additional_files=windows_files,
         _suffix="win",
-        _cuda=False,
     ),
     Configuration(
-        _otvision_path=otvision_path,
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
         _files=base_files,
-        _additional_files=unix_files,
+        _additional_files=linux_files,
         _suffix="linux",
-        _cuda=False,
     ),
     Configuration(
-        _otvision_path=otvision_path,
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
         _files=base_files,
-        _additional_files=unix_files,
+        _additional_files=mac_files,
         _suffix="macOS",
-        _cuda=False,
-    ),
-    Configuration(
-        _otvision_path=otvision_path,
-        _files=base_files,
-        _additional_files=windows_files,
-        _suffix="win-cuda",
-        _cuda=True,
-    ),
-    Configuration(
-        _otvision_path=otvision_path,
-        _files=base_files,
-        _additional_files=unix_files,
-        _suffix="linux-cuda",
-        _cuda=True,
     ),
 ]
 print(configurations)
