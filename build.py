@@ -155,6 +155,14 @@ class Configuration:
     _additional_files: list[File]
     _suffix: str
 
+    def __init__(self, package_version, package_path, files, addfiles, suff):
+            self._package_version = package_version
+            self._package_path = package_path
+            self._files = files
+            self._additional_files = addfiles
+            self._suffix = suff
+
+    
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
     ) -> None:
