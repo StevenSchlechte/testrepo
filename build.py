@@ -13,7 +13,7 @@ from yaml.loader import SafeLoader
 
 
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-    configuration = yaml.load(f, Loader=SafeLoader)
+    configurations = yaml.load(f, Loader=SafeLoader)
 
 
 
