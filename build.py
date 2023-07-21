@@ -161,6 +161,12 @@ class Configuration:
     def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode) -> Configuration:
         """Construct a Configuration."""
         return Configuration(**loader.construct_mapping(node))
+
+    def get_loader():
+        """Add constructors to PyYAML loader."""
+        loader = yaml.SafeLoader
+        loader.add_constructor("!Employee", configuration_constructor)
+        return loader
         
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
