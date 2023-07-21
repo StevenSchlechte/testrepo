@@ -10,7 +10,44 @@ from zipfile import ZipFile
 from yaml.loader import SafeLoader
 
 
-
+configurations: list[Configuration] = [
+    Configuration(
+        _otvision_path=otvision_path,
+        _files=base_files,
+        _additional_files=windows_files,
+        _suffix="win",
+        _cuda=False,
+    ),
+    Configuration(
+        _otvision_path=otvision_path,
+        _files=base_files,
+        _additional_files=unix_files,
+        _suffix="linux",
+        _cuda=False,
+    ),
+    Configuration(
+        _otvision_path=otvision_path,
+        _files=base_files,
+        _additional_files=unix_files,
+        _suffix="macOS",
+        _cuda=False,
+    ),
+    Configuration(
+        _otvision_path=otvision_path,
+        _files=base_files,
+        _additional_files=windows_files,
+        _suffix="win-cuda",
+        _cuda=True,
+    ),
+    Configuration(
+        _otvision_path=otvision_path,
+        _files=base_files,
+        _additional_files=unix_files,
+        _suffix="linux-cuda",
+        _cuda=True,
+    ),
+]
+print(configurations)
 
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
     configurations = yaml.load(f, Loader=SafeLoader)
