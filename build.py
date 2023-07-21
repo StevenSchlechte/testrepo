@@ -159,7 +159,7 @@ class Configuration:
             self._suffix = suff
 
     def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode) -> Configuration:
-      """Construct an employee."""
+        """Construct an employee."""
         return Configuration(**loader.construct_mapping(node))
         
     def create_zip(
