@@ -162,7 +162,9 @@ class Configuration:
             self._additional_files = addfiles
             self._suffix = suff
 
-    
+    @classmethod
+    def from_yaml(cls, loader, node):
+        return cls(node.value)
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
     ) -> None:
