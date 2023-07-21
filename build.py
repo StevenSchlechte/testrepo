@@ -165,7 +165,7 @@ class Configuration:
     def get_loader():
         """Add constructors to PyYAML loader."""
         loader = yaml.SafeLoader
-        loader.add_constructor("!Configuration", configuration_constructor)
+        loader.add_constructor("!Configuration", Configuration.configuration_constructor)
         return loader
     
     def create_zip(
