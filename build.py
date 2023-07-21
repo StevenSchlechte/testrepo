@@ -247,7 +247,7 @@ mac_files: list[File] = [
 clean_directory(distribution_path)
 
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-configurations = yaml.load(f, Loader=Configuration.get_loader())
+     configurations = yaml.load(f, Loader=Configuration.get_loader())
      
 print(configurations)
 for configuration in configurations:
