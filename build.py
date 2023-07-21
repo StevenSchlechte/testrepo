@@ -1,11 +1,20 @@
 import os
 import shutil
 import zipfile
+import yaml
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser
 from dataclasses import dataclass
 from pathlib import Path
 from zipfile import ZipFile
+from yaml.loader import SafeLoader
+
+
+
+
+with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
+    configuration = yaml.load(f, Loader=SafeLoader)
+
 
 
 class File(ABC):
