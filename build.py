@@ -167,9 +167,6 @@ class Configuration:
         loader = yaml.SafeLoader
         loader.add_constructor("!Configuration", configuration_constructor)
         return loader
-
-    with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-    configurations = yaml.load(f, Loader=get_loader())
     
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
@@ -249,7 +246,9 @@ mac_files: list[File] = [
 ]
 clean_directory(distribution_path)
 
-
+ with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
+    configurations = yaml.load(f, Loader=Configuration.get_loader())
+     
 print(configurations)
 for configuration in configurations:
     configuration.create_zip(
