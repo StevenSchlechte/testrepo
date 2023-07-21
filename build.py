@@ -170,6 +170,7 @@ class Configuration:
 
     with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
     configurations = yaml.load(f, Loader=get_loader())
+    
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
     ) -> None:
