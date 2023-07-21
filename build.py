@@ -223,6 +223,30 @@ mac_files: list[File] = [
     DifferentNameFile(Path("start_gui.sh"), Path("start_gui.command")),
 ]
 
+configurations: list[Configuration] = [
+    Configuration(
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
+        _files=base_files,
+        _additional_files=windows_files,
+        _suffix="win",
+    ),
+    Configuration(
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
+        _files=base_files,
+        _additional_files=linux_files,
+        _suffix="linux",
+    ),
+    Configuration(
+        _package_version=cli_args.package_version,
+        _package_path=package_path,
+        _files=base_files,
+        _additional_files=mac_files,
+        _suffix="macOS",
+    ),
+]
+
 clean_directory(distribution_path)
 for configuration in configurations:
     configuration.create_zip(
