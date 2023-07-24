@@ -253,6 +253,7 @@ with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
 print(configurations)
 
 for configuration in configurations:
+    print(configuration)
     configuration.create_zip(
         output_file_name,
         output_directory=distribution_path,
