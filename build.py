@@ -249,8 +249,6 @@ clean_directory(distribution_path)
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
      configurationsDic = yaml.load(f, Loader=Configuration.get_loader())
 
-configurations = configurationsDic.items()
-
 print(configurations)
 print(type(configurations))
 for configuration in configurations:
