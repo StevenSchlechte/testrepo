@@ -237,8 +237,6 @@ for data in configurationsDic:
     print("test")
     print(data)
     print("test")
-    print(data["_package_version"])
-    configuration = Configuration(data["_package_version"],data["_package_path"],data["_files"],data["_additional_files"],data["_suffix"])
     configurations.append(configuration)
 
 print(configurations)
