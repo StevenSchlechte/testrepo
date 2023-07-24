@@ -139,7 +139,7 @@ def clean_directory(directory: Path) -> None:
     directory.mkdir(exist_ok=True)
 
 
-@dataclass(frozen=True)
+@dataclass()
 class Configuration:
     """Configuration for deployment. It contains all files required on the given
     platform (suffix)
