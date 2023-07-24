@@ -139,7 +139,7 @@ def clean_directory(directory: Path) -> None:
     directory.mkdir(exist_ok=True)
 
 
-@dataclass()
+@dataclass(frozen = True)
 class Configuration:
     """Configuration for deployment. It contains all files required on the given
     platform (suffix)
@@ -150,23 +150,6 @@ class Configuration:
     _files: list[File]
     _additional_files: list[File]
     _suffix: str
-
-    def __init__(self, _package_version, _package_path, _files, _additional_files, _suffix):
-            self._package_version = _package_version
-            self._package_path = _package_path
-            self._files = _files
-            self._additional_files = _additional_files
-            self._suffix = _suffix
-
-    def configuration_constructor(loader: yaml.SafeLoader, node: yaml.nodes.MappingNode):
-        """Construct a Configuration."""
-        return Configuration(**loader.construct_mapping(node))
-
-    def get_loader():
-        """Add constructors to PyYAML loader."""
-        loader = yaml.SafeLoader
-        loader.add_constructor("!Configuration", Configuration.configuration_constructor)
-        return loader
     
     def create_zip(
         self, file_name: str, output_directory: Path, temp_directory: Path
@@ -246,13 +229,14 @@ mac_files: list[File] = [
 ]
 clean_directory(distribution_path)
 
-with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-     configurations = yaml.load(f, Loader=Configuration.get_loader())
+with open('../TestChangesyml/config.yml') as f:
+     configurationsDic = yaml.load(f, Loader=yaml.SafeLoader)
+
+configurations = list(configurationsDic.items())
 
 print(configurations)
-print(type(configurations))
 
-for configuration in configurations.get("configurations"):
+for configuration in configurations:
     configuration.create_zip(
         output_file_name,
         output_directory=distribution_path,
