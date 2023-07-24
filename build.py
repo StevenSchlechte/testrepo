@@ -247,32 +247,9 @@ mac_files: list[File] = [
 clean_directory(distribution_path)
 
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-     configurations = yaml.load(f, Loader=Configuration.get_loader())
+     configurationsDic = yaml.load(f, Loader=Configuration.get_loader())
 
-configurations: list[Configuration] = [
-    Configuration(
-        _package_version=cli_args.package_version,
-        _package_path=package_path,
-        _files=base_files,
-        _additional_files=windows_files,
-        _suffix="win",
-    ),
-    Configuration(
-        _package_version=cli_args.package_version,
-        _package_path=package_path,
-        _files=base_files,
-        _additional_files=linux_files,
-        _suffix="linux",
-    ),
-    Configuration(
-        _package_version=cli_args.package_version,
-        _package_path=package_path,
-        _files=base_files,
-        _additional_files=mac_files,
-        _suffix="macOS",
-    ),
-]
-
+configurations = configurationsDic.items()
 
 print(configurations)
 print(type(configurations))
