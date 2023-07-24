@@ -229,7 +229,7 @@ mac_files: list[File] = [
 ]
 clean_directory(distribution_path)
 
-with open('../TestChangesyml/config.yml') as f:
+with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
      configurationsDic = yaml.load(f, Loader=yaml.SafeLoader)
 
 configurations = list(configurationsDic.items())
