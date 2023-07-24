@@ -234,10 +234,8 @@ with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
 print(configurationsDic)
 configurations = []
 for data in configurationsDic:
-    test = data["_package_version"]
     package_version= cli_args.package_version
-    print(package_version)
-    package_path = data["_package_path"]
+    package_path = Path(data["_package_path"])
     files = data["_files"]
     additional_files = data["_additional_files"]
     suffix = data["_suffix"]
