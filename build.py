@@ -232,7 +232,10 @@ clean_directory(distribution_path)
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
      configurationsDic = yaml.load(f, Loader=yaml.SafeLoader)
 print(configurationsDic)
-configurations = list(configurationsDic.items())
+configurations = []
+for data in configurationsDic:
+    configuration = Configuration(data["_package_version"],data["_package_path"],data["_files"],data["_additional_files"],data["_suffix"])
+    configurations.append(configuration)
 
 print(configurations)
 
