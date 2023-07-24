@@ -247,12 +247,12 @@ mac_files: list[File] = [
 clean_directory(distribution_path)
 
 with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
-     configurationsDic = yaml.load(f, Loader=Configuration.get_loader())
+     configurations = yaml.load(f, Loader=Configuration.get_loader())
 
 print(configurations)
 print(type(configurations))
-for configuration in configurations:
-    print(configuration)
+
+for configuration in configurations.get("configurations"):
     configuration.create_zip(
         output_file_name,
         output_directory=distribution_path,
