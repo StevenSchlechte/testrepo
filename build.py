@@ -238,11 +238,11 @@ for data in configurationsDic:
     package_path = Path(data["_package_path"])
     files = base_files
     switch(data["_additional_files"])
-    if data["_additional_files"] == "windows_files"
+    if data["_additional_files"] == "windows_files":
         additional_files = windows_files
-    if data["_additional_files"] == "linux_files"
+    if data["_additional_files"] == "linux_files":
         additional_files = linux_files
-    if data["_additional_files"] == "mac_files"
+    if data["_additional_files"] == "mac_files":
         additional_files = mac_files
     suffix = data["_suffix"]
     configuration = Configuration(package_version, package_path, files, additional_files, suffix)
