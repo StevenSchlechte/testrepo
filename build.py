@@ -236,7 +236,7 @@ configurations = []
 for data in configurationsDic:
     package_version= cli_args.package_version
     package_path = Path(data["_package_path"])
-    files = data["_files"]
+    files = base_files
     additional_files = data["_additional_files"]
     suffix = data["_suffix"]
     configuration = Configuration(package_version, package_path, files, additional_files, suffix)
