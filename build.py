@@ -234,8 +234,12 @@ with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
 print(configurationsDic)
 configurations = []
 for data in configurationsDic:
-    print(data["_package_version"])
-    configuration = Configuration(data["_package_version"],data["_package_path"],data["_files"],data["_additional_files"],data["_suffix"])
+    package_version= CliArgumentParser().parse().data["_package_path"]
+    package_path = data["_package_path"]
+    files = data["_files"]
+    additional_files = data["_additional_files"]
+    suffix = data["_suffix"]
+    configuration = Configuration(package_version, package_path, files, additional_files, suffix)
     configurations.append(configuration)
 
 print(configurations)
