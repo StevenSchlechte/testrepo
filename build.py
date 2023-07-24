@@ -251,7 +251,7 @@ with open('/home/runner/work/testrepoyml/testrepoyml/config.yml') as f:
 
 
 print(configurations)
-
+type(configurations)
 for configuration in configurations:
     print(configuration)
     configuration.create_zip(
