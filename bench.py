@@ -1,4 +1,8 @@
+from fib import fib
 import pytest
 
-def some_test_case(benchmark):
-    benchmark(some_func, args)
+def test_fib_10(benchmark):
+    benchmark(fib, 10)
+
+def test_fib_20(benchmark):
+    benchmark(fib, 20)
